@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
+import Navbar from "../components/Header";
 
 export default function TCPage() {
   const sections = [
@@ -70,69 +71,72 @@ export default function TCPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-center mb-6"
-      >
-        Terms and Conditions
-      </motion.h2>
+    <>
+      <Navbar />
+      <div className="max-w-5xl mx-auto px-6 py-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold text-center mb-6"
+        >
+          Terms and Conditions
+        </motion.h2>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="text-lg text-gray-700 text-center mb-12"
-      >
-        Welcome to <span className="font-semibold">Dastawez and Resume Hub</span>. By using our services, you agree to the following terms and conditions.
-      </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-gray-700 text-center mb-12"
+        >
+          Welcome to <span className="font-semibold">Dastawez and Resume Hub</span>. By using our services, you agree to the following terms and conditions.
+        </motion.p>
 
-      <div className="space-y-8">
-        {sections.map((section, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition"
-          >
-            <h3 className="text-xl font-semibold text-blue-700 mb-4">
-              {section.title}
-            </h3>
-            <ul className="space-y-2 text-gray-700">
-              {section.items.map((item, i) => (
-                <li key={i} className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-2"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            {section.note && (
-              <p className="mt-4 text-sm bg-yellow-100 text-yellow-800 p-3 rounded-md font-medium">
-                {section.note}
-              </p>
-            )}
-          </motion.div>
-        ))}
+        <div className="space-y-8">
+          {sections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition"
+            >
+              <h3 className="text-xl font-semibold text-blue-700 mb-4">
+                {section.title}
+              </h3>
+              <ul className="space-y-2 text-gray-700">
+                {section.items.map((item, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-2"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {section.note && (
+                <p className="mt-4 text-sm bg-yellow-100 text-yellow-800 p-3 rounded-md font-medium">
+                  {section.note}
+                </p>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-10 text-center text-gray-700"
+        >
+          <p className="mb-4">
+            By using our services, you confirm that you have read, understood, and agreed to these terms.  
+            We reserve the right to modify these terms at any time without prior notice.
+          </p>
+          <p className="font-semibold text-blue-600">
+            For any queries, feel free to contact our support team.
+          </p>
+        </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-10 text-center text-gray-700"
-      >
-        <p className="mb-4">
-          By using our services, you confirm that you have read, understood, and agreed to these terms.  
-          We reserve the right to modify these terms at any time without prior notice.
-        </p>
-        <p className="font-semibold text-blue-600">
-          For any queries, feel free to contact our support team.
-        </p>
-      </motion.div>
-    </div>
+    </>
   );
 }

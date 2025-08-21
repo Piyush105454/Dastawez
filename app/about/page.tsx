@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../components/Header";
 
 export default function AboutPage() {
   return (
     <>
+      <Navbar />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
@@ -34,7 +36,7 @@ export default function AboutPage() {
       {/* Features */}
       <section className="bg-gray-50 py-12 px-6">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Key Features</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-6xl mx-auto">
           {[
             { title: "Quick MP Online Services", desc: "Get all essential services without visiting physical shops." },
             { title: "Zero Waiting Time", desc: "Skip the queues at MP Online centers." },
@@ -43,9 +45,9 @@ export default function AboutPage() {
             { title: "Document Printing", desc: "High-quality forms and certificates printouts." },
             { title: "Affordable Pricing", desc: "Transparent pricing for students & professionals." },
           ].map((f, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
-              <h3 className="text-lg font-semibold mb-2 text-blue-600">{f.title}</h3>
-              <p className="text-gray-600">{f.desc}</p>
+            <div key={i} className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 p-4 flex flex-col items-center min-h-[140px]">
+              <h3 className="text-base font-semibold mb-2 text-blue-600 text-center">{f.title}</h3>
+              <p className="text-gray-600 text-center text-sm">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -54,7 +56,7 @@ export default function AboutPage() {
       {/* How it Works */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">How Dastawez Works?</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
           {[
             "Join the Dastawez WhatsApp Group",
             "Select Your MP Online Service",
@@ -64,11 +66,11 @@ export default function AboutPage() {
             "Make Secure Payment",
             "Receive Your Processed Documents",
           ].map((step, i) => (
-            <div key={i} className="flex items-start space-x-4">
-              <div className="h-10 w-10 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full">
+            <div key={i} className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 p-4 flex flex-col items-center min-h-[140px]">
+              <div className="h-8 w-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full mb-3">
                 {i + 1}
               </div>
-              <p className="text-gray-700">{step}</p>
+              <p className="text-gray-700 text-center text-sm font-medium">{step}</p>
             </div>
           ))}
         </div>
